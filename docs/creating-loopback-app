@@ -48,3 +48,24 @@ Varuns-MacBook-Air:angular6-contact-book varunsukheja$ lb datasource
 > Persisting data in file check [loopback documentation](https://loopback.io/doc/en/lb2/Memory-connector.html#data-persistence)
 
 
+## Create new Data Model
+I am going to create a new data model **Contact**, which will have below mentioned attributes
+
+| Field         | Description      |
+| ------------- |:---------------: |
+| firstName     | First Name       |
+| lastName      | Last Name        |
+| phoneNumber   | Phone Number     |
+| email         | Email            |
+| isActive      | Status (Active/Inactive)|
+| country       | Country (India)  |
+| countryCode   | Country Code(+91)|
+
+To create a data model we use cmd
+```
+$ lb model
+```
+
+
+
+> I am not providing my shell snippet because it was too long, but it is explained step by step here in  [loopback documentation](https://loopback.io/doc/en/lb3/Create-a-simple-API.html#create-models)
