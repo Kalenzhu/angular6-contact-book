@@ -93,3 +93,21 @@ Keep adding the rest attributes as shown in above snippet and once done just hit
 
 
 > For step by step explanation please look here in  [loopback documentation](https://loopback.io/doc/en/lb3/Create-a-simple-API.html#create-models)
+
+
+
+## Run server and API explorer
+To run your loopback server just type cmd `node .`
+
+```ssh
+Varuns-MacBook-Air:angular6-contact-book varunsukheja$ node .
+Web server listening at: http://localhost:3000
+Browse your REST API at http://localhost:3000/explorer
+```
+
+Once you see above message it means your server is running at http://localhost:3000.
+To browse API explorer just http://localhost:3000/explorer into your browser.
+You will see Contact and User model. Contact is created by us and User is created by loopback.
+When you click on Contact you will come to see various auto-generated REST APIs, you can try to hit those APIs from API explorer itself.
+
+> Loopback explains how to use API explorer very brilliantly here in [loopback documentation](http://loopback.io/doc/en/lb3/Use-API-Explorer.html)
