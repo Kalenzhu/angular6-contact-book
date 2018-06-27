@@ -1,0 +1,50 @@
+
+## Installing loopback CLI
+```ssh
+npm install -g loopback-cli
+```
+
+## Create new Loopback app
+Create new app using CLI's `lb` command
+Once you hit `lb` command you need to provide the details like project name, etc and loopback will generate app for you.
+
+
+Below it shows how i used lb command in my terminal. For detailed step checkout [Loopback documentation](https://loopback.io/doc/en/lb3/Create-a-simple-API.html#create-new-application)
+```ssh
+Varuns-MacBook-Air:angular6-contact-book varunsukheja$ lb
+? What's the name of your application? angular6-contact-book
+? Which version of LoopBack would you like to use? 3.x (current)
+? What kind of application do you have in mind? api-server (A LoopBack API server with local User auth)
+Generating .yo-rc.json
+.
+.
+.
+```
+
+> NOTE: You can also create project using `slc` or `apic` but it is recommended to use `lb` with version 3.x of loopback, because slc and apic are legacy since v3.x.
+
+
+## Create new Data Source
+Loopback provides you to have various databases like
+  - Memory
+  - MongoDB
+  - MySQL
+  - Elastic Search
+  - Oracle
+  and many more
+
+> For creating data sources to connect to various databases checkout [loopback documentation](https://loopback.io/doc/en/lb2/Memory-connector.html#creating-a-data-source)
+
+I am going to create a new data source named as **fileSystem** which will be a **In-memory db** and it will store all of its data in a json file to which I will name as **data.json**.
+
+```ssh
+Varuns-MacBook-Air:angular6-contact-book varunsukheja$ lb datasource
+? Enter the datasource name: fileSystem
+? Select the connector for fileSystem: In-memory db (supported by StrongLoop)
+? window.localStorage key to use for persistence (browser only):
+? Full path to file for persistence (server only): data.json
+```
+
+> Persisting data in file check [loopback documentation](https://loopback.io/doc/en/lb2/Memory-connector.html#data-persistence)
+
+
