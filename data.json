@@ -1,0 +1,11 @@
+{
+  "ids": {
+    "Contact": 3
+  },
+  "models": {
+    "Contact": {
+      "1": "{\"firstName\":\"varun\",\"lastName\":\"sukheja\",\"phoneNumber\":9876543210,\"email\":\"sukheja.varun@gmail.com\",\"isActive\":true,\"country\":\"India\",\"countryCode\":\"+91\",\"id\":1}",
+      "2": "{\"firstName\":\"Kamal\",\"lastName\":\"Khatwani\",\"phoneNumber\":9876543211,\"email\":\"kamal.khatwani@gmail.com\",\"isActive\":true,\"country\":\"India\",\"countryCode\":\"+91\",\"id\":2}"
+    }
+  }
+}
