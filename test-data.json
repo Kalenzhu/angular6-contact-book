@@ -1,0 +1,10 @@
+{
+  "ids": {
+    "Contact": 2
+  },
+  "models": {
+    "Contact": {
+      "1": "{\"firstName\":\"varun\",\"lastName\":\"sukheja\",\"phoneNumber\":9012345678,\"email\":\"sukheja.varun@gmail.com\",\"isActive\":true,\"country\":\"India\",\"countryCode\":\"+91\",\"id\":1}"
+    }
+  }
+}
