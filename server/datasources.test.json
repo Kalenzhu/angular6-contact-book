@@ -6,7 +6,7 @@
   "fileSystem": {
     "name": "fileSystem",
     "localStorage": "",
-    "file": "data/data.json",
+    "file": "data/test-data.json",
     "connector": "memory"
   }
 }
