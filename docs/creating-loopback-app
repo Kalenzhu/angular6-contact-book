@@ -42,7 +42,7 @@ Varuns-MacBook-Air:angular6-contact-book varunsukheja$ lb datasource
 ? Enter the datasource name: fileSystem
 ? Select the connector for fileSystem: In-memory db (supported by StrongLoop)
 ? window.localStorage key to use for persistence (browser only):
-? Full path to file for persistence (server only): data.json
+? Full path to file for persistence (server only): data/data.json
 ```
 
 > Persisting data in file check [loopback documentation](https://loopback.io/doc/en/lb2/Memory-connector.html#data-persistence)
