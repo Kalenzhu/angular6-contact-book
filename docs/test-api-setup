@@ -79,11 +79,6 @@ let server = require('../../server/server');
 let should = chai.should();
 chai.use(chaiHttp);
 ```
-- Now we need to import the model that we want to test, in our case we have to test **Contact** model
-```ssh
-// Model to test
-let Contact = require('../../common/models/contact');
-```
 
 
 ### Writing test
@@ -122,6 +117,38 @@ it('it should GET all the contacts', (done) => {
         });
     });
 ```
+
+
+
+### Clearing Database after running tests
+We should clear the DB after running the tests, so that next time when tests run there is no junk data already present in our DB.
+Hence we are going to clear the DB i.e. test-data.json file in after block of mocha. After block runs when the execution of all the tests is done.
+
+Create a after block which runs after running all test.
+
+```ssh
+  after(function() {
+    // runs after all tests in this block
+  });
+```
+
+Now inside this after block we will write our logic to delete test-data.json file using file stream.
+```ssh
+let fs = require('fs');
+    let fileToRemove = 'data/test-data.json';
+    fs.unlink(fileToRemove, function(err) {
+      if (err && err.code == 'ENOENT') {
+        // file doens't exist
+        console.info('File does not exist');
+      } else if (err) {
+        // other errors, e.g. maybe we don't have enough permission
+        console.error('Error occurred while trying to remove DB file');
+      } else {
+        console.info('removed DB file');
+      }
+    });
+```
+
 
 ### Running test
 
