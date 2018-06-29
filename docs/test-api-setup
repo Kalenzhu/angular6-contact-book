@@ -26,9 +26,9 @@ To install mocha check below cmd:
    ```
 
 
-## Setting up Testing for APIs
+## Setting up Tests for APIs
 
-#### Creating new Data source for test
+### Creating new Data source for test
 
 We are going to create a new data source for test so that testing does not impact the **Production Data**.
 
@@ -61,3 +61,103 @@ Q. What's the use of creating **datasources.test.json** ?
 Ans. Whenever we start loopback server after setting `NODE_ENV=test` our models will now use datasource mentioned in **datasources.test.json** instead of using datasources from **datasources.json**.
 So the file path mentioned in **datasources.test.json** is *data/test-data.json*, hence our models will use *test-data.json* file instead of using *data.json*,
 therefore our **production data** which is present in *data.json* will not be impacted while testing.
+
+
+
+### Setting up test file
+- Create a new tests folder and add a new  test file, lets call it as contact.test.js
+- Now in test file lets set NODE_ENV to test so that when server starts it uses datasources.test.json instead of datasources.json
+```ssh
+process.env.NODE_ENV = 'test';
+```
+- Now import the dev dependencies,
+```ssh
+// Require the dev-dependencies
+let chai = require('chai');
+let chaiHttp = require('chai-http');
+let server = require('../../server/server');
+let should = chai.should();
+chai.use(chaiHttp);
+```
+- Now we need to import the model that we want to test, in our case we have to test **Contact** model
+```ssh
+// Model to test
+let Contact = require('../../common/models/contact');
+```
+
+
+### Writing test
+
+After setting up test framework in  **contact.test.js** file, lets write our 1st test.
+
+Create a describe block and it block as shown below
+
+```ssh
+describe('Contacts', () => {
+  /*
+  * Test the /GET route
+  */
+  describe('/GET contact', () => {
+    it('it should GET all the contacts', (done) => {
+      // test code goes here
+    });
+  });
+});
+```
+
+
+Now inside the it block we can write our test to check get request
+This is how it block looks after adding test,
+
+```ssh
+it('it should GET all the contacts', (done) => {
+      chai.request(server)
+        .get('/api/Contacts')
+        .then(function(response) {
+          response.should.have.status(200);
+          done();
+        })
+        .catch(function(error) {
+          done(error);
+        });
+    });
+```
+
+### Running test
+
+Running the test is very simple just type mocha and give path to your test file.
+
+```ssh
+./node_modules/mocha/bin/mocha tests/contact.test.js
+```
+
+In above cmd, it will run only a single test which is **contact.test.js**
+Now, in bigger project we might have more than one test file, so let's make it generic so that it can run all the test file.
+
+```ssh
+./node_modules/mocha/bin/mocha tests/**/test.js
+```
+So here we are asking mocha to run every file inside the folder test which has **test.js** in their filename.
+
+### Running test via npm
+
+This is a very easy step, all you need to do is just add below snippet inside script field of your package.json
+`"test": "./node_modules/mocha/bin/mocha tests/**/*test.js --reporter spec"`
+
+This is how it looks in package.json
+```ssh
+"scripts": {
+    "lint": "eslint .",
+    "start": "node .",
+    "posttest": "npm run lint && nsp check",
+    "test": "./node_modules/mocha/bin/mocha tests/**/*test.js --reporter spec"
+  },
+```
+
+Q. What is the advantage of creating new script in package.json
+
+Ans. The advantage of creating test script above is that we can now run test by simply typing `npm test` in our terminal.
+
+
+> Ref: https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
+This blog explains how to use mocha, chai and chai-http for node.
