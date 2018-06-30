@@ -1,0 +1,19 @@
+
+> NOTE: Before going through the steps mentioned below make sure you have done angular-setup, if not then please refer to angular6-setup.md file.
+
+## Installing Angular Material
+
+To install angular material as mentioned in their [official doc](https://material.angular.io/guide/getting-started)
+we need to install 2 packages **@angular/material** and **@angular/cdk**
+
+
+```ssh
+ng add @angular/material
+ng add @angular/cdk
+```
+
+
+> NOTE: We are using `ng add` instead of `npm install` because ng add is the new functionality provided by angular6,
+ng add will use your package manager to download new dependencies and invoke an installation script (implemented as a schematic) which can update your project with configuration changes, add additional dependencies (e.g. polyfills), or scaffold package-specific initialization code.
+
+
