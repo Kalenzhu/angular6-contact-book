@@ -22,7 +22,7 @@ or scaffold package-specific initialization code.
 > You can also add `@angular/animations` for animations and `hammerjs` for gestures.
 
 
-## Creating MetrialModule
+## Creating MaterialModule
 
 To work with Angular material components you need to import them in your module .ts file.
 But instead of directly adding components of @angular/material as a dependency in module.ys file,
@@ -69,3 +69,31 @@ And finally we will add this MaterialModule as a dependency to AppModule
   ```
 
 - Now whenever we need any Material component, simple import it in material.ts file and the add it to `imports` and `exports` array, that's it.
+
+
+
+## Adding Material Icons
+Below are the steps to install Material icons
+- Add below line to index.html filr.
+  ```html
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  ```
+
+- Import MatIconModule in material.ts and add in the `imports` and `exports` array.
+  ```ts
+  import {MatIconModule} from '@angular/material/icon';
+
+
+  @NgModule({
+    imports: [MatCardModule, MatIconModule],
+    exports: [MatCardModule, MatIconModule],
+  })
+  ```
+
+- To add icons, simple add `<mat-icon>` tag to your html with icon name. Let's say we want a delete icon,
+  ```html
+  <mat-icon>delete</mat-icon>
+  ```
+
+> NOTE: To use more icons, you can check at [Official Material Icon](https://material.io/tools/icons/)
+
