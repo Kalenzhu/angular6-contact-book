@@ -7,13 +7,15 @@ import {MaterialModule} from './material';
 import { ThumbnailListComponent } from './thumbnail-list/thumbnail-list.component';
 import { ListViewComponent } from './list-view/list-view.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { AddContactComponent } from './add-contact/add-contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThumbnailComponent,
     ThumbnailListComponent,
-    ListViewComponent
+    ListViewComponent,
+    AddContactComponent
   ],
   imports: [
     BrowserModule,
