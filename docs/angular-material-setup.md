@@ -97,3 +97,23 @@ Below are the steps to install Material icons
 
 > NOTE: To use more icons, you can check at [Official Material Icon](https://material.io/tools/icons/)
 
+
+## Adding Material theme
+
+It is necessary to add at least one Material theme because material components will give you full rich feel only when they get their css defined in their theme css files.
+
+Adding Material theme css is very easy, all you need to do is import theme in your `src/styles.scss` file
+
+styles.scss
+```
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+```
+
+Angular Material provides 4 prebuilt themes,
+- deeppurple-amber.css
+- indigo-pink.css
+- pink-bluegrey.css
+- purple-green.css
+
+
+We have imported `indigo-pink.css` in our project as shown in above code snippet.
