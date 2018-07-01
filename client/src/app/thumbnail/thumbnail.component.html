@@ -1,0 +1,43 @@
+<mat-card class="thumbnail-card">
+
+  <mat-card-header>
+    <img mat-card-avatar
+         src="http://res.cloudinary.com/varun-cloud/image/upload/ar_1:1,b_rgb:262c35,bo_5px_solid_rgb:ff0000,c_fill,g_auto,q_auto:good,r_max,w_212/v1530391238/angular6-contact-book/user-avatar/PHOTO_20180409_074244.png">
+    <mat-card-title>{{myContact.firstName}}</mat-card-title>
+    <mat-card-subtitle>{{myContact.lastName}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <img mat-card-image class="profile-image"
+       src="http://res.cloudinary.com/varun-cloud/image/upload/c_scale,q_auto:good,w_251/v1530391246/angular6-contact-book/user-profile/1892-8x12_1.jpg"
+       alt="{{myContact.firstName}}">
+  <mat-card-content>
+    <!--Status: active-->
+
+    <mat-list class="details-list">
+      <h3 mat-subheader class="header-details">Details</h3>
+      <mat-list-item>
+        <mat-icon mat-list-icon>call</mat-icon>
+        <h1 mat-line>{{myContact.countryCode}}-{{myContact.phoneNumber}}</h1>
+      </mat-list-item>
+
+      <mat-list-item>
+        <mat-icon mat-list-icon>email</mat-icon>
+        <h5 mat-line>{{myContact.email}}</h5>
+      </mat-list-item>
+
+      <mat-list-item>
+        <mat-icon mat-list-icon>location_on</mat-icon>
+        <h5 mat-line>{{myContact.country}}</h5>
+      </mat-list-item>
+    </mat-list>
+
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-button>EDIT</button>
+    <button mat-button>DELETE</button>
+    <mat-slide-toggle class="toggle-activate" [checked]="myContact.isActive" (change)="toggleAtivateContact($event)">
+      Activate
+    </mat-slide-toggle>
+  </mat-card-actions>
+</mat-card>
