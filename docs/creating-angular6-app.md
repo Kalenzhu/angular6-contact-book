@@ -253,3 +253,93 @@ hence it is important to mark them as optional in Angular so that we do not get 
 
 - Now our service is ready to be used in any component.
 
+
+
+## Creating ThumbnailListComponent
+
+- Create a new angular component using Angular CLI
+  ```
+  ng generate component thumbnail-list
+  ```
+- Add selector tag for ThumbnailListComponent by removing selector of ThumbnailComponent in app.component.html file
+
+  app.component file (after modification)
+  ```
+  <app-thumbnail-list></app-thumbnail-list>
+  ```
+
+- Purpose of this component is to import Thumbnail Component and view 1 thumbnail corresponding to each contact in contactList.
+- Now next step is to import the ContactService which will fetch all the contacts using getContacts() method.
+
+## Using contact service in ThumbnailListComponent.
+
+- Import ContactService in in ThumbnailListComponent
+  ```
+  import {ContactService} from '../contact.service';
+  ```
+
+- Add a private contactService parameter of type ContactService to the constructor.
+  ```
+  constructor(private contactService: ContactService) {}
+  ```
+
+- Declare a variable contactList of type Contact[];
+  ```
+  contactList: Contact[];
+  ```
+
+- Create a method to fetch the contacts from the service.
+  ```
+   getContacts(): void {
+       this.contactList = this.contactService.getContacts();
+   }
+  ```
+
+- Call the above created method `getContacts()` inside gnOnInit()
+  ```
+  ngOnInit() {
+      this.getContacts();
+    }
+  ```
+
+
+## Passing data from thumbnailListComponent to thumbnailComponent
+
+Now Let's use thumbnailComponent inside out thumbnailList print thumbnail for each contact we get in our contactList array.
+To do so we also need to pass data for each contact from thumbnailListComponent to its corresponding thumbnailComponent.
+
+- Add `<app-thumbnail></app-thumbnail>` in your thumbnail-list.component.html file.
+
+- Let's loop though each contact in contact List.
+  ```
+  <div *ngFor="let contact of contactList">
+    <app-thumbnail></app-thumbnail>
+  </div>
+  ```
+
+- Now let's pass the contact to thumbnailComponent
+  ```
+  <div *ngFor="let contact of contactList">
+    <app-thumbnail [myContact]="contact"></app-thumbnail>
+  </div>
+  ```
+  thumbnailComponent will be able to fetch contact using `myContact` variable.
+
+- Now in your thumbnail.component.html file import Input from @angular/core
+  ```
+  import { Component, OnInit, Input } from '@angular/core';
+  ```
+
+- Add a hero property, preceded by the @Input() decorator.
+  ```
+  @Input() myContact: Contact;
+  ```
+
+  > NOTE: also import Contact class for type checking`import {Contact} from '../contact';`
+   as you see in above code we are declaring myContact of type Contact.
+
+- Now lets use myContact property to display contact data in the thumbnail.component.html file.
+ Replace Static data with variable like,
+ `Varun - {{myContact.firstName}}` similarly for others
+
+

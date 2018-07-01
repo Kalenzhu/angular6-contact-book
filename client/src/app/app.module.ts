@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import {MaterialModule} from './material';
+import { ThumbnailListComponent } from './thumbnail-list/thumbnail-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ThumbnailComponent
+    ThumbnailComponent,
+    ThumbnailListComponent
   ],
   imports: [
     BrowserModule,
