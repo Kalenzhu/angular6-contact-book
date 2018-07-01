@@ -117,3 +117,13 @@ Angular Material provides 4 prebuilt themes,
 
 
 We have imported `indigo-pink.css` in our project as shown in above code snippet.
+
+## Adding Animations
+
+> NOTE: If you wish to add Animations then check the [Material Doc](https://material.angular.io/guide/getting-started#step-2-animations)
+
+
+## Adding Gesture support
+
+> NOTE: If you wish to add Gesture support then check the [Material Doc](https://material.angular.io/guide/getting-started#step-5-gesture-support)
+
