@@ -31,4 +31,14 @@ export const CONTACTS: Contact[] = [
     country: 'India',
     countryCode: '+91'
   },
+  {
+    id: 3,
+    firstName: 'ayush',
+    lastName: 'agarwal',
+    phoneNumber: 1212121212,
+    email: 'ayush.agarwal@gmail.com',
+    isActive: true,
+    country: 'India',
+    countryCode: '+91'
+  },
 ];
