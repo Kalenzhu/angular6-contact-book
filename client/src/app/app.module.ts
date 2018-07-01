@@ -8,6 +8,7 @@ import { ThumbnailListComponent } from './thumbnail-list/thumbnail-list.componen
 import { ListViewComponent } from './list-view/list-view.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AddContactComponent } from './add-contact/add-contact.component';
+import { EditContactComponent } from './edit-contact/edit-contact.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AddContactComponent } from './add-contact/add-contact.component';
     ThumbnailComponent,
     ThumbnailListComponent,
     ListViewComponent,
-    AddContactComponent
+    AddContactComponent,
+    EditContactComponent
   ],
   imports: [
     BrowserModule,
