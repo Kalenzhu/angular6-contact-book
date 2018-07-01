@@ -115,3 +115,141 @@ thumbnail.component.scss
 }
 
 ```
+
+
+## Creating contact class
+
+- add a new file `contact.class.ts` file in src/app folder.
+- Now add syntax to make this file a class and name it as `Contact`
+  ```
+  export class Contact {}
+  ```
+- Now we will add the fields that are present in our contact model and this is how our file looks
+  ```
+  export class Contact {
+    id: number;
+    firstName: string;
+    lastName?: string;
+    phoneNumber: number;
+    email?: string;
+    isActive: boolean;
+    country: string;
+    countryCode: string;
+  }
+
+  ```
+
+Q. Why did we create this `contact.class.ts` file.
+
+Ans. We want to achieve **Strong typing** in our app hence we have created this class file where we declared variables beforehand.
+
+
+Q. Why have we used `?` in some of the properties and not in others.
+
+Ans. `?` marks a parameter as optional. As in our Contact model we have kept lastName and email as optional with no default value
+hence it is important to mark them as optional in Angular so that we do not get error if some of the Contact objects does not contains these properties.
+
+
+## creating contacts mock data
+
+- Add a new file `mock-contacts.ts` inside the folder src/app.
+- Add syntac for exporting constant
+  ```
+  import {Contact} from './contact';
+
+  export const CONTACTS: Contact[] = [];
+  ```
+
+> NOTE: we have given Contact type to CONSTANT variable so that we can achieve strong typing i.e. if in case our CONTACTS array contains any invalid data then typescript will throw error.
+
+- Now create few objects with contact properties and add them in CONTACTS array.
+
+  ```
+  import {Contact} from './contact';
+
+  export const CONTACTS: Contact[] = [
+    {
+      id: 1,
+      firstName: 'Varun',
+      lastName: 'Sukheja',
+      phoneNumber: 9876543210,
+      email: 'sukheja.varun@gmail.com',
+      isActive: true,
+      country: 'India',
+      countryCode: '+91'
+    },
+    {
+      id: 2,
+      firstName: 'Vishal',
+      lastName: 'Sukheja',
+      phoneNumber: 1234567890,
+      email: 'sukheja.vishal@gmail.com',
+      isActive: true,
+      country: 'India',
+      countryCode: '+91'
+    },
+    {
+      id: 3,
+      firstName: 'Kamal',
+      lastName: 'Khatwani',
+      phoneNumber: 5432167890,
+      email: 'kamla.khatwani@gmail.com',
+      isActive: true,
+      country: 'India',
+      countryCode: '+91'
+    },
+  ];
+
+  ```
+
+
+
+## creating contact service
+
+
+- Create a new `contact` service using angular CLI,
+  ```
+  ng generate service contact
+  ```
+
+- A new file `contact.service.ts` is generated under src/app folder
+
+  contact.service.ts
+  ```
+  import { Injectable } from '@angular/core';
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class ContactService {
+
+    constructor() { }
+  }
+
+  ```
+
+
+- Import `Contact` class and `CONTACTS` the mock-contacts.
+  ```
+  import {Contact} from './contact';
+  import {CONTACTS} from './mock-contacts';
+  ```
+
+- Add a method `getContacts()` which will return the list of contacts from our mock-contacts file.
+  ```
+   getContacts(): Contact[] {
+      return CONTACTS;
+    }
+  ```
+
+- Next you need to register a provider. A provider is something that can create or deliver a service; in this case, it instantiates the ContactService class to provide the service.
+  But if you look at the @Injectable() statement right before the ContactService class definition, you can see that the providedIn metadata value is 'root':
+  ```
+  @Injectable({
+    providedIn: 'root',
+  })
+  ```
+  which means Angular CLI has generated a provider at root level, so we need to do nothing in this step.
+
+- Now our service is ready to be used in any component.
+
