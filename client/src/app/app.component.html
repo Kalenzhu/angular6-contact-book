@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span class="view-header">Thumbnail View</span>
-    <span class="view-header">List View</span>
+    <a routerLink="/thumbnail" routerLinkActive="active-link" class="view-header">Thumbnail View</a>
+    <a routerLink="/list" routerLinkActive="active-link" class="view-header">List View</a>
     <span class="nav-spacer"></span>
 
     <button mat-raised-button>
@@ -11,4 +11,4 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<app-thumbnail-list></app-thumbnail-list>
+<router-outlet></router-outlet>

@@ -6,6 +6,7 @@ import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import {MaterialModule} from './material';
 import { ThumbnailListComponent } from './thumbnail-list/thumbnail-list.component';
 import { ListViewComponent } from './list-view/list-view.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ListViewComponent } from './list-view/list-view.component';
   ],
   imports: [
     BrowserModule,
-    MaterialModule
+    MaterialModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
