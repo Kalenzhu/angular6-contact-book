@@ -140,6 +140,100 @@ describe('Contacts', () => {
     });
   });
 
+  /*
+  * Negative Tests
+  */
+  describe('/POST contact Negative Tests', () => {
+    it('it should fail if first name is missing', (done) => {
+      let contact = {
+        lastName: 'Paji',
+        phoneNumber: 9876543210,
+        email: 'karam.paji@gmail.com',
+      };
+      chai.request(server)
+        .post('/api/Contacts')
+        .send(contact)
+        .then(function(response) {
+          response.should.have.status(422);
+          done();
+        })
+        .catch(function(error) {
+          done(error);
+        });
+    });
+    it('it should fail if phoneNumber is missing', (done) => {
+      let contact = {
+        firstName: 'karam',
+        lastName: 'Paji',
+        email: 'karam.paji@gmail.com',
+      };
+      chai.request(server)
+        .post('/api/Contacts')
+        .send(contact)
+        .then(function(response) {
+          response.should.have.status(422);
+          done();
+        })
+        .catch(function(error) {
+          done(error);
+        });
+    });
+    it('it should fail if phone number is already present', (done) => {
+      let contact = {
+        firstName: 'Karam',
+        lastName: 'Paji',
+        phoneNumber: 9876543210,
+        email: 'karam.paji@gmail.com',
+      };
+      chai.request(server)
+        .post('/api/Contacts')
+        .send(contact)
+        .then(function(response) {
+          response.should.have.status(422);
+          done();
+        })
+        .catch(function(error) {
+          done(error);
+        });
+    });
+    it('it should fail if phone number is less than 10 digits', (done) => {
+      let contact = {
+        firstName: 'Karam',
+        lastName: 'Paji',
+        phoneNumber: 12345,
+        email: 'karam.paji@gmail.com',
+      };
+      chai.request(server)
+        .post('/api/Contacts')
+        .send(contact)
+        .then(function(response) {
+          response.should.have.status(422);
+          done();
+        })
+        .catch(function(error) {
+          done(error);
+        });
+    });
+    it('it should fail if phone number is more than 10 digits', (done) => {
+      let contact = {
+        firstName: 'Karam',
+        lastName: 'Paji',
+        phoneNumber: 123456789012345,
+        email: 'karam.paji@gmail.com',
+      };
+      chai.request(server)
+        .post('/api/Contacts')
+        .send(contact)
+        .then(function(response) {
+          response.should.have.status(422);
+          done();
+        })
+        .catch(function(error) {
+          done(error);
+        });
+    });
+  });
+
   after(() => {
     // After all test we empty the database
     let fs = require('fs');
