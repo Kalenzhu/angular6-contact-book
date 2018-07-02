@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {Contact} from '../contact';
-
+import {ContactService} from '../contact.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-contact',
@@ -12,7 +13,8 @@ export class AddContactComponent implements OnInit {
   contact: Contact = new Contact();
   email = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor() {
+  constructor(private contactService: ContactService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -24,6 +26,7 @@ export class AddContactComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('contact', this.contact);
+    this.contactService.createContact(this.contact);
+    this.router.navigate(['/thumbnail']);
   }
 }

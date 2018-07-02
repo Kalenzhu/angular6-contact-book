@@ -14,4 +14,9 @@ export class ContactService {
   getContacts(): Contact[] {
     return CONTACTS;
   }
+
+  createContact(myContact: Contact): void {
+    CONTACTS.push(myContact);
+    alert(`Contact added successfully!`);
+  }
 }
