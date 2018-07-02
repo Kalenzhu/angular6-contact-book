@@ -6,6 +6,9 @@ import {AddContactComponent} from '../add-contact/add-contact.component';
 import {EditContactComponent} from '../edit-contact/edit-contact.component';
 import {NotFoundComponent} from '../not-found/not-found.component';
 
+/**
+ * Routes on different paths in our Angular App
+ */
 const routes: Routes = [
   {path: 'thumbnail', component: ThumbnailListComponent},
   {path: 'list', component: ListViewComponent},

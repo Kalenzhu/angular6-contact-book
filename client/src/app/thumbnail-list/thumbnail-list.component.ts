@@ -18,10 +18,18 @@ export class ThumbnailListComponent implements OnInit {
     this.getContacts();
   }
 
+  /**
+   * @description It fetches all the contacts
+   */
   getContacts(): void {
     this.contactService.getContacts().subscribe(contacts => this.contactList = contacts);
   }
 
+  /**
+   * @description It fetches message from child component
+   * If it gets a reload message then it calls getContacts() method to refresh the data
+   * @param $event
+   */
   receiveMessage($event) {
     if ($event === 'reload') {
       this.getContacts();

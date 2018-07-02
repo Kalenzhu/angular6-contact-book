@@ -1,7 +1,9 @@
+<!-- It calls Thumbnail Component in loop to display Thumbanail for each Contact -->
 <div class="contact-thumbnail-container" *ngIf="contactList && contactList.length>0">
   <app-thumbnail *ngFor="let contact of contactList" class="contact-thumbnail" [myContact]="contact"
                  (messageEvent)="receiveMessage($event)"></app-thumbnail>
 </div>
+<!-- Show 'No Contacts to Display' when contactList is empty-->
 <div class="no-content">
   <h2 *ngIf="!contactList || contactList.length===0">No Contacts to Display</h2>
 </div>

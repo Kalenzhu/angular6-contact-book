@@ -1,10 +1,29 @@
 # angular6-contact-book
 
-A simple contact book created using Angular6 (frontend) and loopback (backend)
+A simple **contact book** created using Angular6 (frontend) and loopback (backend). By the end of this tutorial project you will have basic knowledge of below technologies:
+- Loopback
+- Testing APIs using Mocha, chai and chai-http
+- Angular 6
 
 
 # Running Project
 ***
+
+## Install dependencies
+
+  - **Install Loopback dependencies:**  Inside project root fodler `/angular6-contact-book`, run below cmd
+    ```
+    npm install
+    ```
+
+     > NOTE: It will take some time to download all the required dependencies, wait for it to finish.
+
+  - **Install Angular dependencies :** Inside Angular root folder `/angular6-contact-book/client`, run below cmd
+    ```
+    npm install
+    ```
+
+
 There are 2 modes for running the project.
   - Development Mode
   - Production Mode
@@ -23,14 +42,14 @@ Web server listening at: http://localhost:3000
 Browse your REST API at http://localhost:3000/explorer
 ```
 
-To run Loopback server just surf to
+To run Loopback server just copy-paste below URL in your browser
 ```
 http://localhost:3000/
 ```
 
 > But you won't be able to see anything as we are runnig development mode and there are angular static files as of now which loopback can serve.
 
-To run Loopback API explorer just surf to
+To run Loopback API explorer just copy-paste below URL in your browser
 ```
 http://localhost:3000/explorer
 ```
@@ -47,7 +66,7 @@ you will get to see below message when server is up,
 ℹ ｢wdm｣: Compiled successfully.
 ```
 
-To run Angular app just surf to
+To run Angular app just copy-paste below URL in your browser
 ```
 http://localhost:4200
 ```
@@ -56,21 +75,32 @@ http://localhost:4200
 ## Production Mode
 To run project in prod mode i.e. make loopback server to serve angular app.
 1. Build your angular app to generate static content for loopback.
-
-  - Go to Angular folder i.e. `/angular6-contact-book/client`
-  - Run build cmd
-    ```
-    ng build
-    ```
-  - Once build is done, you will get to see `angular6-contact-book/client/dist` is generated.
-
-
+    - Go to Angular folder i.e. `/angular6-contact-book/client`
+    - Run build cmd
+        ```
+        ng build
+        ```
+    - Once build is done, you will get to see `angular6-contact-book/client/dist` is generated.
 1. Now simply run loopback server,
-    ```
-    npm start
+   ```
+   npm start
     ```
 
 Now both Loopbak and Angular runs at `http://localhost:3000`
+
+
+# Running Backend Test
+***
+Make sure you have downloaded all the needed dependencies, if not then go to project root folder `angular6-contact-book` and run below cmd
+```
+npm install
+```
+
+Running Api test is very easy, as we have already setup **npm script** so all you need to do is just go to Project root
+`angular6-contact-book` and run below cmd
+```
+npm test
+```
 
 
 # Tutorial
@@ -116,6 +146,8 @@ Table of Content for DOCs in learning order :
     - [X] Creating new Data Source for test
     - [X] Setting up test file
     - [X] Writing test
+    - [X] Writing negative tests.
+    - [X] Writing test for edge cases.
     - [X] Creating Database after running Test
     - [X] Running Test
     - [X] Running test via npm
@@ -166,7 +198,6 @@ Table of Content for DOCs in learning order :
   - [ ] Deploy project on Heroku.
   - [ ] Angular6 Unit testing.
   - [ ] Angular6 E2E testing.
-  - [ ] Backend API testing for edge cases.
   - [ ] Creating list-view component.
   - [ ] Frontend Validations.
   - [ ] Backend custom validation like restrict duplicate phone entry.

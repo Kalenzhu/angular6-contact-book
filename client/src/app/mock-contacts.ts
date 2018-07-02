@@ -1,3 +1,7 @@
+/**
+ * This file gives some mock contacts
+ */
+
 import {Contact} from './contact';
 
 export const CONTACTS: Contact[] = [

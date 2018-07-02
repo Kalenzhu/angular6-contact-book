@@ -15,6 +15,10 @@ export class ContactService {
   constructor(private http: HttpClient) {
   }
 
+  /**
+   * @description It fetches all contacts from server
+   * @return {Observable<Contact[]>}
+   */
   getContacts(): Observable<Contact[]> {
     return this.http.get<Contact[]>(this.contactUrl)
       .pipe(
@@ -22,10 +26,20 @@ export class ContactService {
       );
   }
 
+  /**
+   * @description It fetches a particular Contact from server whose id is passed
+   * @param {number} id - id used to find Contact
+   * @return {Observable<Contact>}
+   */
   getContact(id: number): Observable<Contact> {
     return this.http.get<Contact>(`${this.contactUrl}/${id}`);
   }
 
+  /**
+   * @description It creates a new Contact in server
+   * @param {Contact} myContact - Contact object which is to be added in DB
+   * @return {Observable<Contact>}
+   */
   createContact(myContact: Contact): Observable<Contact> {
     return this.http.post<Contact>(this.contactUrl, myContact).pipe(
       tap(_ => alert(`Contact added successfully!`)),
@@ -33,6 +47,11 @@ export class ContactService {
     );
   }
 
+  /**
+   * @description It updates contact in the server
+   * @param {Contact} myContact - Contact to be updated
+   * @return {Observable<any>}
+   */
   updateContact(myContact: Contact): Observable<any> {
     return this.http.put(this.contactUrl, myContact).pipe(
       tap(_ => alert(`Contact updated successfully!`)),
@@ -40,6 +59,11 @@ export class ContactService {
     );
   }
 
+  /**
+   * @description It deletes a single contact from server
+   * @param {number} id - Contact Id which is to be deleted.
+   * @return {Observable<any>}
+   */
   deleteContact(id: number): Observable<any> {
     return this.http.delete(`${this.contactUrl}/${id}`).pipe(
       tap(_ => alert('Contact Deleted!')),

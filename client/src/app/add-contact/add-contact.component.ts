@@ -20,11 +20,18 @@ export class AddContactComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * @description It gives the message to be displayed on Email Validation
+   * @return {string | string | string}
+   */
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
       this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
+  /**
+   * @description It calls the createContact() method from service to create a new Contact
+   */
   onSubmit(): void {
     this.contactService.createContact(this.contact).subscribe(() => {
       this.router.navigate(['/thumbnail']);
