@@ -30,7 +30,8 @@ describe('Contacts', () => {
         isActive: true,
         country: 'India',
         countryCode: '+91',
-        id: 1};
+        id: 1,
+      };
       chai.request(server)
         .post('/api/Contacts')
         .send(contact)
@@ -49,19 +50,60 @@ describe('Contacts', () => {
   */
   describe('/GET contact', () => {
     it('it should GET all the contacts', (done) => {
-      let res = [{firstName: 'varun',
+      let res = [{
+        firstName: 'varun',
         lastName: 'sukheja',
         phoneNumber: 1234567890,
         email: 'sukheja.varun@gmail.com',
         isActive: true,
         country: 'India',
         countryCode: '+91',
-        id: 1}];
+        id: 1,
+      }];
       chai.request(server)
         .get('/api/Contacts')
         .then(function(response) {
           response.should.have.status(200);
           response.body.should.have.length(1);
+          response.body.should.eql(res);
+          done();
+        })
+        .catch(function(error) {
+          done(error);
+        });
+    });
+  });
+
+  /*
+  * Test the /PUT route
+  */
+  describe('/PUT contact', () => {
+    it('it should PUT a new contact', (done) => {
+      let contact = {
+        firstName: 'Arjun',
+        lastName: 'Ranawat',
+        phoneNumber: 9876543210,
+        email: 'arjun.ranawat@gmail.com',
+        isActive: true,
+        country: 'India',
+        countryCode: '+91',
+        id: 1,
+      };
+      let res = {
+        firstName: 'Arjun',
+        lastName: 'Ranawat',
+        phoneNumber: 9876543210,
+        email: 'arjun.ranawat@gmail.com',
+        isActive: true,
+        country: 'India',
+        countryCode: '+91',
+        id: 1,
+      };
+      chai.request(server)
+        .put('/api/Contacts')
+        .send(contact)
+        .then(function(response) {
+          response.should.have.status(200);
           response.body.should.eql(res);
           done();
         })
