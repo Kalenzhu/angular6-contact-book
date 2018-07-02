@@ -40,7 +40,11 @@
       ]
     }
   },
-  "files": {},
+  "files": {
+    "loopback#static": {
+      "params": "$!../client/dist/ngContactBook"
+    }
+  },
   "final": {
     "loopback#urlNotFound": {}
   },
