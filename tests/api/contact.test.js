@@ -232,8 +232,22 @@ describe('Contacts', () => {
           done(error);
         });
     });
+  /*
+  * Test the /DELETE by id route
+  */
+  describe('/DELETE contacts/{id}', () => {
+    it('it should DELETE single contact by Id', (done) => {
+      chai.request(server)
+        .delete('/api/Contacts/1')
+        .then(function(response) {
+          response.should.have.status(200);
+          done();
+        })
+        .catch(function(error) {
+          done(error);
+        });
+    });
   });
-
   after(() => {
     // After all test we empty the database
     let fs = require('fs');
