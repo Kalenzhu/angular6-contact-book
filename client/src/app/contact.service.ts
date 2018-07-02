@@ -30,4 +30,11 @@ export class ContactService {
     CONTACTS[index] = myContact;
     alert(`Contact updated successfully!`);
   }
+
+  deleteContac(id: number): void {
+    const contact = this.getContact(id);
+    const index = CONTACTS.indexOf(contact);
+    CONTACTS.splice(index, 1);
+    alert('Contact Deleted!');
+  }
 }
