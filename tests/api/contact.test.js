@@ -112,6 +112,33 @@ describe('Contacts', () => {
         });
     });
   });
+  /*
+  * Test the /GET by id route
+  */
+  describe('/GET contacts/{id}', () => {
+    it('it should GET single contact by Id', (done) => {
+      let res = {
+        firstName: 'Arjun',
+        lastName: 'Ranawat',
+        phoneNumber: 9876543210,
+        email: 'arjun.ranawat@gmail.com',
+        isActive: true,
+        country: 'India',
+        countryCode: '+91',
+        id: 1,
+      };
+      chai.request(server)
+        .get('/api/Contacts/1')
+        .then(function(response) {
+          response.should.have.status(200);
+          response.body.should.eql(res);
+          done();
+        })
+        .catch(function(error) {
+          done(error);
+        });
+    });
+  });
 
   after(() => {
     // After all test we empty the database
