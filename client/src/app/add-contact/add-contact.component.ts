@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
+import {Contact} from '../contact';
+
 
 @Component({
   selector: 'app-add-contact',
@@ -6,10 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-contact.component.scss']
 })
 export class AddContactComponent implements OnInit {
+  contact: Contact = new Contact();
+  email = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  getErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter a value' :
+      this.email.hasError('email') ? 'Not a valid email' : '';
+  }
+
+  onSubmit(): void {
+    console.log('contact', this.contact);
+  }
 }
