@@ -23,17 +23,26 @@ export class EditContactComponent implements OnInit {
     this.getContact();
   }
 
+  /**
+   * @description It gives the message to be displayed on Email Validation
+   * @return {string | string | string}
+   */
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
       this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
+  /**
+   * @description It fetches the Contact for given Id
+   */
   getContact(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.contactService.getContact(id).subscribe(contact => this.contact = contact);
   }
 
-
+  /**
+   * @description It calls updateContact() from ContactService to update a contact
+   */
   onSubmit(): void {
     this.contactService.updateContact(this.contact).subscribe(() => {
       this.router.navigate(['/thumbnail']);
