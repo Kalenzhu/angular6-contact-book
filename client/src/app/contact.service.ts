@@ -26,9 +26,11 @@ export class ContactService {
     return this.http.get<Contact>(`${this.contactUrl}/${id}`);
   }
 
-  createContact(myContact: Contact): void {
-    CONTACTS.push(myContact);
-    alert(`Contact added successfully!`);
+  createContact(myContact: Contact): Observable<Contact> {
+    return this.http.post<Contact>(this.contactUrl, myContact).pipe(
+      tap(_ => alert(`Contact added successfully!`)),
+      catchError(this.handleError<any>('updateHero'))
+    );
   }
 
   updateContact(myContact: Contact): Observable<any> {

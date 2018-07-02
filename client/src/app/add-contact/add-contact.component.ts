@@ -26,7 +26,8 @@ export class AddContactComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.contactService.createContact(this.contact);
-    this.router.navigate(['/thumbnail']);
+    this.contactService.createContact(this.contact).subscribe(() => {
+      this.router.navigate(['/thumbnail']);
+    });
   }
 }
