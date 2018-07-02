@@ -30,7 +30,7 @@ export class EditContactComponent implements OnInit {
 
   getContact(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.contact = Object.assign({}, this.contactService.getContact(id));
+    this.contactService.getContact(id).subscribe(contact => this.contact = contact);
   }
 
 

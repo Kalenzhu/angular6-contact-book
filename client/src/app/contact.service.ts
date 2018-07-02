@@ -22,8 +22,8 @@ export class ContactService {
       );
   }
 
-  getContact(id: number): Contact {
-    return CONTACTS.find(contact => contact.id === id);
+  getContact(id: number): Observable<Contact> {
+    return this.http.get<Contact>(`${this.contactUrl}/${id}`);
   }
 
   createContact(myContact: Contact): void {
@@ -32,16 +32,16 @@ export class ContactService {
   }
 
   updateContact(myContact: Contact): void {
-    const contact = this.getContact(myContact.id);
-    const index = CONTACTS.indexOf(contact);
-    CONTACTS[index] = myContact;
+    // const contact = this.getContact(myContact.id);
+    // const index = CONTACTS.indexOf(contact);
+    // CONTACTS[index] = myContact;
     alert(`Contact updated successfully!`);
   }
 
   deleteContac(id: number): void {
-    const contact = this.getContact(id);
-    const index = CONTACTS.indexOf(contact);
-    CONTACTS.splice(index, 1);
+    // const contact = this.getContact(id);
+    // const index = CONTACTS.indexOf(contact);
+    // CONTACTS.splice(index, 1);
     alert('Contact Deleted!');
   }
 
