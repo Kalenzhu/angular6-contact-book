@@ -178,6 +178,26 @@ describe('Contacts', () => {
           done(error);
         });
     });
+    it('it should fail if id is given explicitly', (done) => {
+      let contact = {
+        firstName: 'Karam',
+        lastName: 'Paji',
+        phoneNumber: 9876543210,
+        email: 'karam.paji@gmail.com',
+        id: 1,
+      };
+      chai.request(server)
+        .post('/api/Contacts')
+        .send(contact)
+        .then(function(response) {
+          response.should.have.status(422);
+          done();
+        })
+        .catch(function(error) {
+          done(error);
+        });
+    });
+    // TODO: Add validation for duplicate phone numbers, then only this test will pass
     it('it should fail if phone number is already present', (done) => {
       let contact = {
         firstName: 'Karam',
@@ -196,6 +216,7 @@ describe('Contacts', () => {
           done(error);
         });
     });
+    // TODO: Add validation for 10 digit phone numbers, then only this test will pass
     it('it should fail if phone number is less than 10 digits', (done) => {
       let contact = {
         firstName: 'Karam',
@@ -214,6 +235,7 @@ describe('Contacts', () => {
           done(error);
         });
     });
+    // TODO: Add validation for 10 digit phone numbers, then only this test will pass
     it('it should fail if phone number is more than 10 digits', (done) => {
       let contact = {
         firstName: 'Karam',
@@ -232,6 +254,25 @@ describe('Contacts', () => {
           done(error);
         });
     });
+    it('it should fail if phone number is a string', (done) => {
+      let contact = {
+        firstName: 'Karam',
+        lastName: 'Paji',
+        phoneNumber: 'hello',
+        email: 'karam.paji@gmail.com',
+      };
+      chai.request(server)
+        .post('/api/Contacts')
+        .send(contact)
+        .then(function(response) {
+          response.should.have.status(422);
+          done();
+        })
+        .catch(function(error) {
+          done(error);
+        });
+    });
+  });
   /*
   * Test the /DELETE by id route
   */
