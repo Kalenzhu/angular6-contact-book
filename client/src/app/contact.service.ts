@@ -23,4 +23,11 @@ export class ContactService {
     CONTACTS.push(myContact);
     alert(`Contact added successfully!`);
   }
+
+  updateContact(myContact: Contact): void {
+    const contact = this.getContact(myContact.id);
+    const index = CONTACTS.indexOf(contact);
+    CONTACTS[index] = myContact;
+    alert(`Contact updated successfully!`);
+  }
 }
