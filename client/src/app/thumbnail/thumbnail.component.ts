@@ -19,9 +19,9 @@ export class ThumbnailComponent implements OnInit {
   ngOnInit() {
   }
 
-  toggleAtivateContact(event: MatSlideToggleChange): void {
-    console.log('isActive', event.checked);
-    // add code to activate or deactivate contact
+  toggleActivateContact(event: MatSlideToggleChange): void {
+    this.myContact.isActive = event.checked;
+    this.contactService.updateContact(this.myContact).subscribe();
   }
 
   deleteContact(id) {
