@@ -19,6 +19,6 @@ export class ThumbnailListComponent implements OnInit {
   }
 
   getContacts(): void {
-    this.contactList = this.contactService.getContacts();
+    this.contactService.getContacts().subscribe(contacts => this.contactList = contacts);
   }
 }

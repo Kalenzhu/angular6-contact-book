@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Contact} from './contact';
 import {CONTACTS} from './mock-contacts';
+import {Observable, of} from 'rxjs/index';
 
 
 @Injectable({
@@ -11,8 +12,8 @@ export class ContactService {
   constructor() {
   }
 
-  getContacts(): Contact[] {
-    return CONTACTS;
+  getContacts(): Observable<Contact[]> {
+    return of(CONTACTS);
   }
 
   getContact(id: number): Contact {
