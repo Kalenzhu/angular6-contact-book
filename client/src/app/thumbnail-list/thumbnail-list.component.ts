@@ -21,4 +21,10 @@ export class ThumbnailListComponent implements OnInit {
   getContacts(): void {
     this.contactService.getContacts().subscribe(contacts => this.contactList = contacts);
   }
+
+  receiveMessage($event) {
+    if ($event === 'reload') {
+      this.getContacts();
+    }
+  }
 }

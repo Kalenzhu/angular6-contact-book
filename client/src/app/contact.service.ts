@@ -40,11 +40,11 @@ export class ContactService {
     );
   }
 
-  deleteContac(id: number): void {
-    // const contact = this.getContact(id);
-    // const index = CONTACTS.indexOf(contact);
-    // CONTACTS.splice(index, 1);
-    alert('Contact Deleted!');
+  deleteContact(id: number): Observable<any> {
+    return this.http.delete(`${this.contactUrl}/${id}`).pipe(
+      tap(_ => alert('Contact Deleted!')),
+      catchError(this.handleError<any>('updateHero'))
+    );
   }
 
   /**
