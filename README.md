@@ -5,6 +5,22 @@ A simple contact book created using Angular6 (frontend) and loopback (backend)
 
 # Running Project
 ***
+
+## Install dependencies
+
+  - **Install Loopback dependencies:**  Inside project root fodler `/angular6-contact-book`, run below cmd
+    ```
+    npm install
+    ```
+
+     > NOTE: It will take some time to download all the required dependencies, wait for it to finish.
+
+  - **Install Angular dependencies :** Inside Angular root folder `/angular6-contact-book/client`, run below cmd
+    ```
+    npm install
+    ```
+
+
 There are 2 modes for running the project.
   - Development Mode
   - Production Mode
@@ -56,18 +72,15 @@ http://localhost:4200
 ## Production Mode
 To run project in prod mode i.e. make loopback server to serve angular app.
 1. Build your angular app to generate static content for loopback.
-
-  - Go to Angular folder i.e. `/angular6-contact-book/client`
-  - Run build cmd
-    ```
-    ng build
-    ```
-  - Once build is done, you will get to see `angular6-contact-book/client/dist` is generated.
-
-
+    - Go to Angular folder i.e. `/angular6-contact-book/client`
+    - Run build cmd
+        ```
+        ng build
+        ```
+    - Once build is done, you will get to see `angular6-contact-book/client/dist` is generated.
 1. Now simply run loopback server,
-    ```
-    npm start
+   ```
+   npm start
     ```
 
 Now both Loopbak and Angular runs at `http://localhost:3000`
