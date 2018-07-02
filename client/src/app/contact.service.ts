@@ -15,6 +15,10 @@ export class ContactService {
     return CONTACTS;
   }
 
+  getContact(id: number): Contact {
+    return CONTACTS.find(contact => contact.id === id);
+  }
+
   createContact(myContact: Contact): void {
     CONTACTS.push(myContact);
     alert(`Contact added successfully!`);
