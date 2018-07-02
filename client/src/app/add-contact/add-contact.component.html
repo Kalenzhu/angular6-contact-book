@@ -1,3 +1,34 @@
-<p>
-  add-contact coming soon!
-</p>
+<h2>Add Contact</h2>
+<form (ngSubmit)="onSubmit()" #myForm="ngForm">
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Enter your First Name" [(ngModel)]="contact.firstName" name="firstName" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Enter your Last Name" [(ngModel)]="contact.lastName" name="lastName">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Enter your email" [formControl]="email" [(ngModel)]="contact.email" name="email"
+             required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Enter your Phone Number" [(ngModel)]="contact.phoneNumber" name="phoneNumber"
+             required type="number">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Enter your Country Code (default: +91)" [(ngModel)]="contact.countryCode"
+             name="countryCode">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Enter your Country (default: India)" [(ngModel)]="contact.country" name="country">
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary">Submit</button>
+</form>

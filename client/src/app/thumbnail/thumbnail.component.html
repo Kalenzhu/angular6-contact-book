@@ -35,7 +35,7 @@
 
   <mat-card-actions>
     <button mat-button class="edit-button" routerLink="/edit/{{myContact.id}}">EDIT</button>
-    <button mat-button>DELETE</button>
+    <button mat-button (click)="deleteContact(myContact.id) ">DELETE</button>
     <mat-slide-toggle class="toggle-activate" [checked]="myContact.isActive" (change)="toggleAtivateContact($event)">
       Activate
     </mat-slide-toggle>
