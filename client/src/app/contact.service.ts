@@ -3,17 +3,20 @@ import {Contact} from './contact';
 import {CONTACTS} from './mock-contacts';
 import {Observable, of} from 'rxjs/index';
 
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
 
-  constructor() {
+  private contactUrl = '/api/Contacts';
+
+  constructor(private http: HttpClient) {
   }
 
   getContacts(): Observable<Contact[]> {
-    return of(CONTACTS);
+    return this.http.get<Contact[]>(this.contactUrl);
   }
 
   getContact(id: number): Contact {
