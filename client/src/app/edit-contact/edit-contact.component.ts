@@ -35,7 +35,8 @@ export class EditContactComponent implements OnInit {
 
 
   onSubmit(): void {
-    this.contactService.updateContact(this.contact);
-    this.router.navigate(['/thumbnail']);
+    this.contactService.updateContact(this.contact).subscribe(() => {
+      this.router.navigate(['/thumbnail']);
+    });
   }
 }

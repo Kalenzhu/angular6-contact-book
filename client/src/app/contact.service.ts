@@ -31,11 +31,11 @@ export class ContactService {
     alert(`Contact added successfully!`);
   }
 
-  updateContact(myContact: Contact): void {
-    // const contact = this.getContact(myContact.id);
-    // const index = CONTACTS.indexOf(contact);
-    // CONTACTS[index] = myContact;
-    alert(`Contact updated successfully!`);
+  updateContact(myContact: Contact): Observable<any> {
+    return this.http.put(this.contactUrl, myContact).pipe(
+      tap(_ => alert(`Contact updated successfully!`)),
+      catchError(this.handleError<any>('updateHero'))
+    );
   }
 
   deleteContac(id: number): void {
