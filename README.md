@@ -9,19 +9,49 @@ A simple **contact book** created using Angular6 (frontend) and loopback (backen
 # Running Project
 ***
 
+## Prerequisite
+- You must have at least node `v8.9` installed on your system.
+    - [Check here](http://blog.teamtreehouse.com/install-node-js-npm-windows) to see How to install nodejs on windows.
+    - [Check here](http://blog.teamtreehouse.com/install-node-js-npm-mac) to see How to install nodejs on mac.
+- You must have `angular-cli` installed on your system.
+  ```
+  npm install -g @angular/cli
+  ```
+
+
+## Clone Project
+Git clone the project into your local system,
+
+Clone via ssh
+```
+git clone git@github.com:sukheja-varun/angular6-contact-book.git
+```
+OR
+
+Clone via https
+```
+git clone https://github.com/sukheja-varun/angular6-contact-book.git
+```
+
+> Check if the project is properly cloned by comparing at the project content on git https://github.com/sukheja-varun/angular6-contact-book
+
 ## Install dependencies
 
-  - **Install Loopback dependencies:**  Inside project root fodler `/angular6-contact-book`, run below cmd
+  - **Install Loopback dependencies:**  Inside project root folder `/angular6-contact-book`, run below cmd
     ```
     npm install
     ```
 
      > NOTE: It will take some time to download all the required dependencies, wait for it to finish.
+     After this check project should contains folder `angular6-contact-book/node_modules`
 
   - **Install Angular dependencies :** Inside Angular root folder `/angular6-contact-book/client`, run below cmd
     ```
     npm install
     ```
+
+    > NOTE: It will take some time to download all the required dependencies, wait for it to finish.
+         After this check project should contains folder `/angular6-contact-book/client/node_modules`
 
 
 There are 2 modes for running the project.
@@ -47,7 +77,7 @@ To run Loopback server just copy-paste below URL in your browser
 http://localhost:3000/
 ```
 
-> But you won't be able to see anything as we are runnig development mode and there are angular static files as of now which loopback can serve.
+> But you won't be able to see anything as we are running development mode and there are angular static files as of now which loopback can serve.
 
 To run Loopback API explorer just copy-paste below URL in your browser
 ```
@@ -81,12 +111,23 @@ To run project in prod mode i.e. make loopback server to serve angular app.
         ng build
         ```
     - Once build is done, you will get to see `angular6-contact-book/client/dist` is generated.
-1. Now simply run loopback server,
+1. Now simply run loopback server i.e. go to project root folder `angular6-contact-book` and run below cmd,
    ```
    npm start
     ```
 
-Now both Loopbak and Angular runs at `http://localhost:3000`
+you will get to see below message when server is up,
+```
+Web server listening at: http://localhost:3000
+Browse your REST API at http://localhost:3000/explorer
+```
+
+To run Loopback server just copy-paste below URL in your browser
+```
+http://localhost:3000/
+```
+
+Now both Loopback and Angular runs at `http://localhost:3000`
 
 
 # Running Backend Test
