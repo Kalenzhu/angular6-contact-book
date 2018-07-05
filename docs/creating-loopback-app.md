@@ -64,13 +64,13 @@ I am going to create a new data model **Contact**, which will have below mention
 To create a data model we use cmd
 ```
 Varuns-MacBook-Air:angular6-contact-book varunsukheja$ lb model
-? Enter the model name: Coontact
-? Select the datasource to attach Coontact to: fileSystem (memory)
+? Enter the model name: Contact
+? Select the datasource to attach Contact to: fileSystem (memory)
 ? Select model's base class PersistedModel
-? Expose Coontact via the REST API? Yes
+? Expose Contact via the REST API? Yes
 ? Custom plural form (used to build REST URL):
 ? Common model or server only? common
-Let's add some Coontact properties now.
+Let's add some Contact properties now.
 
 Enter an empty property name when done.
 ? Property name: firstName
@@ -79,7 +79,7 @@ Enter an empty property name when done.
 ? Required? Yes
 ? Default value[leave blank for none]:
 
-Let's add another Coontact property.
+Let's add another Contact property.
 Enter an empty property name when done.
 ? Property name:
 
